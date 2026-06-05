@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ハンバーガー比較ダッシュボード</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h1>🍔 ハンバーガー比較ダッシュボード</h1>
+
+<h2>バーガー選択</h2>
+
+<div class="button-area">
+
+<button class="burger-btn active"
+data-burger="hamburger">
+ハンバーガー
+</button>
+
+<button class="burger-btn"
+data-burger="cheese">
+チーズバーガー
+</button>
+
+<button class="burger-btn"
+data-burger="teriyaki">
+てりやきバーガー
+</button>
+
+</div>
+
+<table id="dataTable">
+
+<thead>
+<tr>
+<th>店舗</th>
+<th>価格</th>
+<th>カロリー</th>
+<th>炭水化物</th>
+<th>食塩相当量</th>
+<th>アレルゲン数</th>
+</tr>
+</thead>
+
+<tbody>
+</tbody>
+
+</table>
+
+<h2>グラフ表示項目</h2>
+
+<div class="button-area">
+
+<button class="metric-btn active"
+data-metric="price">
+価格
+</button>
+
+<button class="metric-btn"
+data-metric="calorie">
+カロリー
+</button>
+
+<button class="metric-btn"
+data-metric="carb">
+炭水化物
+</button>
+
+<button class="metric-btn"
+data-metric="salt">
+食塩相当量
+</button>
+
+<button class="metric-btn"
+data-metric="allergen">
+アレルゲン数
+</button>
+
+</div>
+
+<h2 id="chartTitle"></h2>
+
+<div class="chart-box">
+<canvas id="chart"></canvas>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
