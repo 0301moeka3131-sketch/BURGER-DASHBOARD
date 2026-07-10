@@ -1,9 +1,9 @@
 const stores = [
     "マクドナルド",
-    "モス",
+    "モスバーガー",
     "バーガーキング",
     "ゼッテリア",
-    "フレッシュネス"
+    "フレッシュネスバーガー"
 ];
 
 const labels = {
@@ -17,28 +17,43 @@ const labels = {
 const data = {
 
     hamburger:{
-        price:[240,260,290,250,420],
-        calorie:[260,280,330,300,390],
-        carb:[30,32,35,31,38],
-        salt:[1.4,1.5,1.8,1.6,2.0],
-        allergen:[5,5,6,5,7]
+        price:[190,240,null,280,560],
+        calorie:[259,314,252,313,408],
+        carb:[30,35,27,31,38],
+        salt:[1.4,1.8,1.2,2.1,1.8],
+        allergen:[8,12,8,8,9]
     },
 
     cheese:{
-        price:[270,320,340,310,480],
-        calorie:[310,350,380,330,420],
-        carb:[31,35,37,33,40],
-        salt:[1.8,2.0,2.2,1.9,2.4],
-        allergen:[6,6,7,6,8]
+        price:[270,510,360,320,560],
+        calorie:[310,425,291,364,390],
+        carb:[31,40,27,32,36],
+        salt:[1.9,2.8,1.6,2.6,2.4],
+        allergen:[8,12,7,8,7]
     },
 
     teriyaki:{
-        price:[400,430,450,420,550],
-        calorie:[480,450,520,470,590],
-        carb:[45,43,48,44,52],
-        salt:[2.2,2.4,2.6,2.3,2.8],
-        allergen:[7,7,8,7,9]
-    }
+        price:[450,470,380,440,520],
+        calorie:[477,385,342,429,361],
+        carb:[38,41,31,35,34],
+        salt:[2.1,2.6,1.6,3.0,1.7],
+        allergen:[11,12,10,6,7]
+    },
+fish:{
+    price:[410,400,430,null,640],
+    calorie:[338,381,374,null,447],
+    carb:[37,37,38,null,38],
+    salt:[1.6,1.9,2.1,null,1.6],
+    allergen:[7,15,18,null,7]
+},
+
+chicken:{
+    price:[190,390,380,440,560],
+    calorie:[383,386,425,486,442],
+    carb:[40,40,35,38,39],
+    salt:[2.2,1.5,2.0,1.8,2.4],
+    allergen:[9,15,18,15,6]
+}
 };
 
 let currentBurger = "hamburger";
@@ -58,17 +73,21 @@ function updateTable(){
         tbody.innerHTML += `
         <tr>
             <td>${stores[i]}</td>
-            <td>${selected.price[i]}</td>
-            <td>${selected.calorie[i]}</td>
-            <td>${selected.carb[i]}</td>
-            <td>${selected.salt[i]}</td>
-            <td>${selected.allergen[i]}</td>
+            <td>${selected.price[i] === null ? "－" : selected.price[i]}</td>
+            <td>${selected.calorie[i] === null ? "－" : selected.calorie[i]}</td>
+
+<td>${selected.carb[i] === null ? "－" : selected.carb[i]}</td>
+
+<td>${selected.salt[i] === null ? "－" : selected.salt[i]}</td>
+
+<td>${selected.allergen[i] === null ? "－" : selected.allergen[i]}</td>
         </tr>
         `;
     }
 }
 
 const chart = new Chart(
+   
     document.getElementById("chart"),
     {
         type:"bar",
